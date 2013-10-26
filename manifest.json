@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Link Boost History",
+    "version": "0.1",
+    "description": "Add links to old subversion commits in github/bitbucket",
+    "author": "Daniel James",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://bitbucket.org/boostorg/*/commits/*",
+                "https://github.com/boostorg/*/commits/*",
+                "https://github.com/boostorg/*/commit/*"
+            ],
+            "js": ["link.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "webNavigation",
+        "https://github.com/*"
+    ],
+    "background": {
+        "scripts": ["eventPage.js"],
+        "persistent": false
+    }
+}
